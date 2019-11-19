@@ -1,0 +1,41 @@
+<h1 class="page-title">categoria</h1>
+
+<button class="btn btn-primary mb-3" routerLink="/categoria/novo">
+  Cadastrar
+</button>
+
+<table class="table table-bordered">
+
+  <thead>
+    <tr class="thead-dark">
+      <th class="text-center col-ml-1">Nome</th>
+      <th class="text-center col-ml-2"></th>
+      <th class="text-center col-ml-1">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let categoria of categorias">
+      <td>
+       
+        <button class="btn btn-info " [routerLink]="['/categoria/visualizar', categoria.id]">
+            {{ categoria.nome }}
+        </button>
+
+      </td>
+
+      <td class="text-center"></td>
+      <td class="text-center ">
+       
+        <button class="btn btn-primary ml-2" [routerLink]="['/categoria/editar', categoria.id]">
+          Editar
+        </button>
+
+        <button class="btn btn-default ml-2" (click)="onDelete(categoria.id)">
+          Deletar
+        </button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
